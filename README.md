@@ -15,4 +15,46 @@ Modifier les fichiers suivants :
   - Avant :  
   $authorizedExtensions = ['gif', 'jpg', 'jpeg', 'jpe', 'png'];  
   - Après :  
-  $authorizedExtensions = ['gif', 'jpg', 'jpeg', 'jpe', 'png', 'jfif'];  
+  $authorizedExtensions = ['gif', 'jpg', 'jpeg', 'jpe', 'png', 'jfif'];
+
+## LetsEncrypt : Ajouter un nouveau nom de domaine sur Apache
+
+Créer le virtualhost :  
+**vim /etc/apache2/site-enabled/www.mondomaine.tld.conf**  
+```
+<VirtualHost *:80>
+    ServerAdmin contact@mondomaine.tld
+    ServerName www.mondomaine.tld
+    
+	DocumentRoot /var/www/www.mondomaine.tld
+
+	<Directory /var/www/www.mondomaine.tld>
+		AllowOverride All
+		Options -Indexes
+	</Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error-mondomaine.tld.log
+    CustomLog ${APACHE_LOG_DIR}/access-mondomaine.tld.log combined
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName mondomaine.tld
+    RedirectMatch permanent ^/(.*) https://www.mondomaine.tld/$1
+</VirtualHost>
+```
+  
+Ensuite lancer la commande : 
+**certbot --apache www.mondomaine.tld**
+
+Un nouveau fichier est créér :
+/etc/apache2/sites-enabled/www.mondomaine.tld-le-ssl.conf
+
+## Apache : Profiter de php fpm sur un virtualhost
+
+Editer le fichier virtualhost du domaine concerné et ajouter les lignes suivantes:
+```
+<FilesMatch \.php$>
+  SetHandler "proxy:unix:/run/php/php7.4-fpm.sock|fcgi://localhost"
+</FilesMatch>
+```
+La version de php dans cet exemple est la 7.4 
