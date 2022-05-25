@@ -46,7 +46,7 @@ Créer le virtualhost :
 Ensuite lancer la commande : 
 **certbot --apache www.mondomaine.tld**
 
-Un nouveau fichier est créér :
+Un nouveau fichier est créé :
 /etc/apache2/sites-enabled/www.mondomaine.tld-le-ssl.conf
 
 ## Apache : Profiter de php fpm sur un virtualhost
