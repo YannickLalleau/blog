@@ -16,4 +16,9 @@
 * [Ajouter un domaine avec un support Letsencrypt](https://www.github.com/YannickLalleau/blog/blob/main/apache/letsencrypt.md)
 <!-- [](https://www.github.com/YannickLalleau/blog/blob/main/apache/) -->
 
+## Mysql
+* [Création d'un utilisateur et de sa base de données](https://www.github.com/YannickLalleau/blog/blob/main/mysql/create-bdd-user.md)
+
+## Unison
+* [Suppression des fichiers temporaires cachés](https://www.github.com/YannickLalleau/blog/blob/main/unison/delete-hidden-file.md)
 
