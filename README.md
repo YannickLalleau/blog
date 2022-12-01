@@ -7,6 +7,7 @@
 ## Prestashop 
 
 * [Ajouter le support de l'extension image Jfif / Jpeg dans les images de produit](https://www.github.com/YannickLalleau/blog/blob/main/prestashop/support-extension-image-jfif.md)
+* [Ajouter le support de la prise en compte du format webp dans l'ajout de visuel produit](https://www.github.com/YannickLalleau/blog/blob/main/prestashop/support-extension-image-webp.md)
 <!-- [](https://www.github.com/YannickLalleau/blog/blob/main/prestashop/) -->
 
 ## Apache
